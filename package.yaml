@@ -1,0 +1,49 @@
+name:                mdtl
+version:             0.1.0.0
+github:              "heptahedron/mdtl"
+license:             BSD3
+author:              "Braxton Spence"
+maintainer:          "braxton@example.com"
+copyright:           "2018 Braxton Spence"
+
+extra-source-files:
+- README.md
+
+description:         https://github.com/heptahedron/mdtl#readme
+
+dependencies:
+- base >= 4.7 && < 5
+- bound
+- lens
+- text
+- deriving-compat
+- transformers
+- scientific
+- megaparsec
+- containers
+- unordered-containers
+
+library:
+  source-dirs: src
+
+executables:
+  mdtl-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - mdtl
+
+tests:
+  mdtl-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - mdtl
